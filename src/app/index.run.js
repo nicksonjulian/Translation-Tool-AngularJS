@@ -6,15 +6,8 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock($log, $rootScope,$state) {
-  	$rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){ 
-    	if (toState.redirectTo) {
-    		console.log("BAU");
-    		event.preventDefault(); 
-    		$state.go(toState.redirectTo, toParams);
-    	}
-    
-	});
+  function runBlock($log, $rootScope, $state) {
+  	
     $log.debug('runBlock end');
   }
 
