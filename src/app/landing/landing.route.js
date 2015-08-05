@@ -6,17 +6,14 @@
     .config(routeConfig);
 
   /** @ngInject */
-  function routeConfig($stateProvider, $urlRouterProvider) {
+  function routeConfig($stateProvider) {
     $stateProvider
       .state('landing', {
         url: '/landing',
         templateUrl: 'app/landing/landing.html',
         controller: 'LandingController',
         controllerAs: 'landing',
-      })
-    $urlRouterProvider.otherwise('/');
-
-    
+      });  
   }
 
 
