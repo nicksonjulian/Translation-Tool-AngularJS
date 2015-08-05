@@ -12,10 +12,19 @@
         url: '/',
         templateUrl: 'app/main/main.html',
         controller: 'MainController',
-        controllerAs: 'main'
+        controllerAs: 'main',
+        redirectTo: 'landing'
+      })
+      .state('landing', {
+        url: '/landing',
+        templateUrl: 'app/main/landing.html'
       });
 
     $urlRouterProvider.otherwise('/');
+
+    
   }
+
+
 
 })();
