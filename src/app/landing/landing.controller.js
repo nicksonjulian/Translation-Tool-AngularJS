@@ -1,11 +1,12 @@
-(function() {
-  'use strict';
+(function () {
+    'use strict';
 
-  angular
-    .module('translationToolAngularJs')
-    .controller('LandingController', LandingController);
+    angular
+        .module('translationToolAngularJs')
+        .controller('LandingController', LandingController);
 
-  /** @ngInject */
-  function LandingController() {
+    /** @ngInject */
+    function LandingController() {
+
     }
 })();

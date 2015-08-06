@@ -1,15 +1,57 @@
-/**
- *  Do not remove this comments bellow. It's the markers used by wiredep to inject
- *  sass dependencies when defined in the bower.json of your dependencies
- */
-// bower:scss
-// endbower
+body{
+  font-family: 'Arvo', serif;
+}
+
+#buttons{
+  background-color:#71C6FF;
+
+}
+
+.md-button{
+  color:white;
+
+}
+
+.md-button.md-raised:not([disabled]) {
+  box-shadow: 0 2px 5px 0 white;
+}
 
 
 
-/**
- *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject
- *  all your sass files automatically
- */
-// injector
-// endinjector
+#first{
+  background-color:#71C6FF;
+  height:400px;
+  padding-bottom:150px;
+  margin-bottom:0px;
+}
+
+#paragraph{
+  width:50%;
+}
+
+
+#information{
+  background-color:red;
+  height:500px;
+}
+
+#information #features{
+  margin-top:0px;
+  padding-bottom: 30px;
+  margin-bottom: 0px;
+}
+
+section#information #features .feature{
+  height:350px;
+  border-style: solid;
+}
+
+#soc-medias{
+  margin-top:0px;
+  background-color:yellow;
+  height:60px;
+}
+
+#soc-medias div{
+  height:100%;
+}
