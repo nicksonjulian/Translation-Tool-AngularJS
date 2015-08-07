@@ -1,4 +1,5 @@
-<header id="buttons">
+<div ng-controller="LandingController">
+  <header class="buttons" >
     <div layout="row" layout-align="start">
         <span class="md-button md-raised md-cornered">Button1</span>
 
@@ -6,46 +7,77 @@
 
         <span class="md-button md-raised md-cornered">Button3</span>
     </div>
-</header>
+  </header>
 
-<section id="first">
-    <div layout="column" layout-align="center center">
-        <h1 class="md-display-3">TRANSLATION TOOL</h1>
-
-        <div id="paragraph">
-            <h2></h2>
-        </div>
+  <section class="first" >
+     <div layout="column" layout-align="center center">
+      <h1 class="md-display-3">TRANSLATION TOOL</h1>
+      <div class="paragraph">
+        <h2> translate translate translate translate translate translate translate translate translate translate translate translate translate translate translate translate translate translate translate translate</h2>
+      </div>
+      <span class="md-button md-raised md-cornered">CLICK ME TO START!</span>
     </div>
-</section>
+  </section>
 
-<section id="information">
-    <div id="features" layout="row" layout-margin layout-padding>
-        <div class="feature" flex='40' style="background-color:white">
-            FEATURE 1
-        </div>
-        <div class="feature" flex='30' style="background-color:white;">
-            FEATURE 2
-        </div>
-        <div class="feature" flex='25' style="background-color:white">
-            FEATURE 3
-        </div>
+  <div class="carousel" layout="row" layout-align="start center">
+    <div flex='10'>
+    </div>
+      
+    <div flex='15'>
+      <a href="#" ng-click="changel($event)">
+        <img src="app/landing/assets/leftarrow.png">
+      </a>
     </div>
 
-    <div id="soc-medias">
-        <div layout="row" layout-align="center center">
-            <md-button class="md-icon-button">
-                <i class="material-icons">home</i>
-            </md-button>
-
-            <md-button class="md-icon-button">
-                <i class="material-icons">android</i>
-            </md-button>
-
-            <md-button class="md-icon-button">
-                <i class="material-icons">face</i>
-            </md-button>
-
-
-        </div>
+    <div class="description"  ng-switch on="currfeature" flex='50'>
+      <div ng-switch-when="feature1" flex>
+        <h1><span ng-bind="currfeature+1"></span></h1>
+        <span ng-bind="descriptions[currfeature]"}}></span>
+      </div>
+      <div ng-switch-when="feature2" flex>
+        <h1><span ng-bind="currfeature+1"></span></h1>
+        <span ng-bind="descriptions[currfeature]"}}></span>
+      </div>
+      <div ng-switch-default flex>
+        <h1><span ng-bind="currfeature+1"></span></h1>
+        <span ng-bind="descriptions[currfeature]"}}></span>
+      </div>
     </div>
-</section>
+
+
+
+    <div flex='15'>
+      <a href="#" ng-click="changer($event)">
+        <img src="app/landing/assets/rightarrow.png">
+      </a>
+    </div>
+
+
+  </div>
+
+
+  <section class="information">
+    <div class="features" layout="row" layout-margin layout-padding>
+      <div class="feature" flex='30' style="background-color:white" ng-click="changea($event, {{feature.id}})" ng-repeat="feature in features">
+        FEATURE {{feature.id}}
+        <img src="{{feature.imgsrc}}">
+      </div>
+    </div>
+
+    <div class="soc-medias">
+      <div layout="row" layout-align="center center">
+        <md-button class="md-icon-button">
+          <i class="material-icons">home</i>
+        </md-button>
+
+        <md-button class="md-icon-button">
+          <i class="material-icons">android</i>
+        </md-button>
+
+        <md-button class="md-icon-button">
+          <i class="material-icons">face</i>
+        </md-button>
+      </div>
+    </div>
+  </section>
+</div>
