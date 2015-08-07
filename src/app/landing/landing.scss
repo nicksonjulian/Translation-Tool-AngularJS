@@ -5,6 +5,21 @@ body{
   font-family: 'Arvo', serif;
 }
 
+.information div div img{
+  padding-top:15%;
+  padding-left:15%;
+  height:60%;
+  width:60%;
+}
+
+.information div div img:hover{
+  opacity:1;
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform:scale(1.2);
+}
+
 .buttons{
   background-color:#71C6FF;
 
@@ -26,6 +41,8 @@ body{
   margin-bottom:0px;
 }
 
+
+
 .paragraph{
   width:50%;
 }
@@ -34,8 +51,19 @@ body{
   width:50%;
 }
 
+
+.carousel{
+  background-color:white;
+  height:350px;
+  padding-left:0px;
+}
+
+.description{
+  height:100%; 
+}
+
 .information{
-  background-color:red;
+  background-color:#71C6FF;
   height:500px;
 }
 
@@ -46,8 +74,7 @@ body{
 }
 
 section.information .features .feature{
-  height:350px;
-  border-style: solid;
+  height:300px;
 }
 
 .soc-medias{
@@ -58,5 +85,38 @@ section.information .features .feature{
 
 .soc-medias div{
   height:100%;
+}
+
+
+.animate-switch-container {
+  position:relative;
+  background:white;
+  border:1px solid black;
+  height:40px;
+  overflow:hidden;
+}
+
+.animate-switch {
+  padding:10px;
+}
+
+.animate-switch.ng-animate {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+
+.animate-switch.ng-leave.ng-leave-active,
+.animate-switch.ng-enter {
+  top:-50px;
+}
+.animate-switch.ng-leave,
+.animate-switch.ng-enter.ng-enter-active {
+  top:0;
 }
 
