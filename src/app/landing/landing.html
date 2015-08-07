@@ -1,4 +1,4 @@
-<div ng-controller="LandingController">
+<div ng-controller="LandingController as land">
   <header class="buttons" >
     <div layout="row" layout-align="start">
         <span class="md-button md-raised md-cornered">Button1</span>
@@ -20,16 +20,16 @@
   </section>
 
   <div class="carousel" layout="row" layout-align="start center">
-    <div flex='10'>
+    <div flex="10">
     </div>
       
-    <div flex='15'>
+    <div flex="15">
       <a href="#" ng-click="changel($event)">
         <img src="app/landing/assets/leftarrow.png">
       </a>
     </div>
 
-    <div class="description"  ng-switch on="currfeature" flex='50'>
+    <div class="description"  ng-switch on="currfeature" flex="50">
       <div ng-switch-when="feature1" flex>
         <h1><span ng-bind="currfeature+1"></span></h1>
         <span ng-bind="descriptions[currfeature]"}}></span>
@@ -46,7 +46,7 @@
 
 
 
-    <div flex='15'>
+    <div flex="15">
       <a href="#" ng-click="changer($event)">
         <img src="app/landing/assets/rightarrow.png">
       </a>
@@ -58,9 +58,9 @@
 
   <section class="information">
     <div class="features" layout="row" layout-margin layout-padding>
-      <div class="feature" flex='30' style="background-color:white" ng-click="changea($event, {{feature.id}})" ng-repeat="feature in features">
-        FEATURE {{feature.id}}
-        <img src="{{feature.imgsrc}}">
+      <div class="feature" flex="30" ng-click="changefeature($event, feature.id)" ng-repeat="feature in features">
+        FEATURE {{ land.feature.id }}
+        <img class="featureimg" src="{{ feature.imgsrc }}">
       </div>
     </div>
 
