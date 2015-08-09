@@ -6,7 +6,9 @@
     .controller('LandingController', LandingController);
 
   /** @ngInject */
-  function LandingController($interval, feature_list) {
+  function LandingController($interval, feature_list, parseData) {
+    Parse.initialize("feb37edoK2V51h0k5Vefnf5rrMIP7wYZgLfjnwqo","PHp0oirB0WnG110mHqqp2pyXBcV6kB61t1h9qPGW");
+
     var vm = this;
   	vm.currfeature = 0;
   	vm.descriptions = ["Feature1","Feature2","Feature3"];
