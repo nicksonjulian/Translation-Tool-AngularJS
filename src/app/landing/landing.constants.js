@@ -4,7 +4,7 @@
 
   angular
     .module('translationToolAngularJs')
-    .constant('feature_list',
+    .constant('featureConstants',
     	[{
 	  		id:0,
 	  		title: "FEATURE1",
@@ -22,5 +22,7 @@
 	  		title: "FEATURE3",
 	  		description: "feature3 desc",
 	  		imgsrc: "app/landing/assets/bird.jpg"
-  		}])
+  		}
+  		]
+  	);
 })();
