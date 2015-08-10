@@ -6,13 +6,13 @@
     .controller('LandingController', LandingController);
 
   /** @ngInject */
-  function LandingController($interval, featureConstants, parseService) {
+  function LandingController($interval, FEATURE_LIST, parseService) {
     Parse.initialize("feb37edoK2V51h0k5Vefnf5rrMIP7wYZgLfjnwqo","PHp0oirB0WnG110mHqqp2pyXBcV6kB61t1h9qPGW");
 
     var vm = this;
   	vm.currfeature = 0;
   	vm.descriptions = ["Feature1","Feature2","Feature3"];
-    vm.featurearr = featureConstants;
+    vm.FEATURE_LIST = FEATURE_LIST;
 
   	var intervalchange = function() {
   		if (vm.currfeature === 2) {

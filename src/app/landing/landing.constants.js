@@ -4,7 +4,7 @@
 
   angular
     .module('translationToolAngularJs')
-    .constant('featureConstants',
+    .constant('FEATURE_LIST',
     	[{
 	  		id:0,
 	  		title: "FEATURE1",
