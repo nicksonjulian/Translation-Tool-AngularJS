@@ -58,9 +58,9 @@
 
   <section class="information">
     <div class="features" layout="row" layout-margin layout-padding>
-      <div class="feature" flex="30" ng-click="vm.changefeature($event, $index)" ng-repeat="feature in vm.featurearr">
+      <div class="feature" flex="30" ng-click="vm.changefeature($event, $index)" ng-repeat="feature in vm.FEATURE_LIST">
         FEATURE {{ $index + 1 }}
-        <img class="featureimg" ng-src="{{vm.featurearr[$index].imgsrc}}">
+        <img class="featureimg" ng-src="{{vm.FEATURE_LIST[$index].imgsrc}}">
       </div>
     </div>
 
