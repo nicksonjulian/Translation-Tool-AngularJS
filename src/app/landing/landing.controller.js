@@ -6,40 +6,46 @@
     .controller('LandingController', LandingController);
 
   /** @ngInject */
-  function LandingController($interval, feature_list, parseData) {
+  function LandingController($interval, FEATURE_LIST, parseService) {
     Parse.initialize("feb37edoK2V51h0k5Vefnf5rrMIP7wYZgLfjnwqo","PHp0oirB0WnG110mHqqp2pyXBcV6kB61t1h9qPGW");
 
     var vm = this;
   	vm.currfeature = 0;
   	vm.descriptions = ["Feature1","Feature2","Feature3"];
-    vm.featurearr = feature_list;
+    vm.FEATURE_LIST = FEATURE_LIST;
 
-  	var intervalchange = function(){
-  		if (vm.currfeature == 2)
+  	var intervalchange = function() {
+  		if (vm.currfeature === 2) {
   			vm.currfeature = 0;
-  		else
+      }
+  		else {
   			vm.currfeature += 1;
-  	}
+      }
+  	};
 
   	var promise = $interval(intervalchange, 5000);  	
 
   	vm.changel = function(event){
   		event.preventDefault();
   		$interval.cancel(promise);
-  		if (vm.currfeature == 0)
+  		if (vm.currfeature === 0) {
   			vm.currfeature = 2;
-  		else
+      }
+  		else {
 	  		vm.currfeature = vm.currfeature - 1;
+      }
 	  	promise = $interval(intervalchange, 5000);
   	};
 
   	vm.changer = function(event){
   		event.preventDefault();
   		$interval.cancel(promise);
-  		if (vm.currfeature == 2)
+  		if (vm.currfeature === 2) {
   			vm.currfeature = 0;
-  		else
+      }
+  		else {
   			vm.currfeature += 1;
+      }
   		promise = $interval(intervalchange, 5000);
   	};
 
