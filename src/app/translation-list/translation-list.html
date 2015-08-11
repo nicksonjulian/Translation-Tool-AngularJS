@@ -1,20 +1,24 @@
 <div class="blue-background2" ng-controller="TranslationListController as vm">
-  <div layout="column" layout-align="start center">
-    <h1>TRANSLATION  LIST</h1>
-	<div class="mainregion" layout="row" layout-align="start start">
-		<div flex="20">
-		</div>
-		<div class="table" flex="60">
-			
-		</div>
+    <div layout="column" layout-align="start center">
+        <h1>TRANSLATION LIST</h1>
 
-		<div layout="column" layout-align="start center">
-			<span class="md-button md-raised md-cornered">Edit</span>
-			<span class="md-button md-raised md-cornered">Remove</span>
-			<span class="md-button md-raised md-cornered">Mark as Inactive</span>
-		</div>
+        <div class="mainregion" layout="row" layout-align="start start">
+            <div flex="20">
+            </div>
 
-	</div>
+            <div class="table" flex="60">
+                <div ui-view="section"></div>
 
-  </div>
+                List
+            </div>
+
+            <div layout="column" layout-align="start center">
+                <span class="md-button md-raised md-cornered" ui-sref="translationList.detail({ translationId: 5454 })">Edit</span>
+                <span class="md-button md-raised md-cornered">Remove</span>
+                <span class="md-button md-raised md-cornered">Mark as Inactive</span>
+            </div>
+
+        </div>
+
+    </div>
 </div>

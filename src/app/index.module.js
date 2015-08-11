@@ -1,7 +1,9 @@
-(function() {
-  'use strict';
+(function () {
+    'use strict';
 
-  angular
-    .module('translationToolAngularJs', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router', 'ngMaterial']);
+    angular
+        .module(
+        'translationToolAngularJs', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router', 'ngMaterial']
+    );
 
 })();

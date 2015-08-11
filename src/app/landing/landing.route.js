@@ -12,7 +12,7 @@
         url: '/landing',
         templateUrl: 'app/landing/landing.html',
         controller: 'LandingController',
-        controllerAs: 'landing',
+        controllerAs: 'landing'
       });  
   }
 

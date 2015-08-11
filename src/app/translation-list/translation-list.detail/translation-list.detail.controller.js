@@ -1,12 +1,15 @@
-(function() {
-  'use strict';
+(function () {
+    'use strict';
 
-  angular
-    .module('translationToolAngularJs')
-    .controller('TranslationListDetailController', TranslationListDetailController);
+    angular
+        .module('translationToolAngularJs')
+        .controller('TranslationListDetailController', TranslationListDetailController);
 
-  /** @ngInject */
-  function TranslationListDetailController($interval) {
-  }
+    /** @ngInject */
+    function TranslationListDetailController(
+
+    ) {
+
+    }
 })();
 
