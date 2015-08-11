@@ -4,38 +4,26 @@
   angular
     .module('translationToolAngularJs')
     .service('parseService', function() {
-    // 	var Data = Parse.Object.extend("Data", {
-    // 		// Instance methods
-    // 		getValue: function() {
-    // 			return this.get("v");
-    // 		},
-    // 		initialize: function(k, v) {
-    // 			this.k = k;
-    // 			this.v = v;
-    // 		}
-    // 	},
-    // 	{
-    // 		// Class methods
-    // 		create: function(k, v) {
-    // 			var newdata = new Data();
-    // 			newdata.set("k", k);
-    // 			newdata.set("v", v);
-    // 			return newdata;
-    // 		}
-    // 	}
-    // });
-        
+
+        //var app_id = "feb37edoK2V51h0k5Vefnf5rrMIP7wYZgLfjnwqo";
+        var app_id = "feb37edoK2V51h0k5Vefnf5rrMIP7wYZgLfjnwqo";
+        //var js_key = "PHp0oirB0WnG110mHqqp2pyXBcV6kB61t1h9qPGW";
+        var js_key = "PHp0oirB0WnG110mHqqp2pyXBcV6kB61t1h9qPGW";
+        Parse.initialize(app_id, js_key);
+   
         var Data = Parse.Object.extend("Data");
+
         this.createData = function createData(v1, v2) {
         	var newdata = new Data();
         	newdata.set("v1", v1);
         	newdata.set("v2", v2);
         	newdata.save(null, {
         		success: function(newdata) {
+                    console.log("New Data created with id " + newdata.id);
 
         		},
         		error: function(newdata, error) {
-
+                    console.log("Failed creating Data " + newdata.id);
         		}
         	});
         	return newdata;
@@ -44,11 +32,12 @@
         this.getData = function getData(id) {
         	var query = new Parse.Query(Data);
         	return query.get(id, {
-        		success: function() {
+        		success: function(object) {
+                    console.log("successfully retrieving Data" + object.get("v1")) ;
 
         		},
         		error: function(object, error) {
-
+                    console.log("failed retrieving Data");
         		}
         	});
         };
@@ -61,9 +50,11 @@
         	data.set("v2", v2);
         	newdata.save(null, {
         		success: function(newdata) {
+                    console.log("successfully updating Data");
 
         		},
         		error: function(newdata, error) {
+                    console.log("failed updating Data");
 
         		}
         	});
@@ -73,9 +64,11 @@
         	var data = this.getData(id);
         	data.destroy({
         		success: function(data) {
+                    console.log("successfully deleting Data");
 
         		},
         		error: function(data, error) {
+                    console.log("failed deleting Data");
 
         		}
         	});

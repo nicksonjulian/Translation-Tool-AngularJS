@@ -1,0 +1,14 @@
+$primary-color: #71C6FF;
+
+@import url(http://fonts.googleapis.com/css?family=Arvo);
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
+body {
+  font-family: 'Arvo', serif;
+}
+
+.blue-background{
+  background: linear-gradient(to bottom, white 40%, $primary-color 60%);
+  height: 700px;
+}
+

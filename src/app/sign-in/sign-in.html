@@ -1,0 +1,14 @@
+<div class="blue-background" ng-controller="SignInController as signInvm">
+  <div layout="column" layout-align="center center">
+    <img src="app/components/images/dog.jpg">
+    TRANSLATION  TOOL
+
+    <div class="form-region" layout="column" layout-align="start center">
+      <input type="text" ng-model="signInvm.username" placeholder="Your Name" required>
+      <input type="password" ng-model="signInvm.password" placeholder="password" required>
+      <span class="md-button md-raised md-cornered" ng-click= "signInvm.login($event)">Sign In</span>
+
+    </div>
+
+  </div>
+</div>

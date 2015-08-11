@@ -1,0 +1,14 @@
+<div class="blue-background" ng-controller="SignUpController as signUpvm">
+  <div layout="column" layout-align="center center">
+    <img src="app/components/images/cat.jpg">
+    TRANSLATION TOOL
+    <div class="form-region" name="username" layout="column" layout-align="start center">
+      <input type="text" ng-model="signUpvm.username" placeholder="Your Name" required>
+      <input type="email" ng-model="signUpvm.email" placeholder="email@domain.com" required>
+      <input type="password" ng-model="signUpvm.password" placeholder="password" required>
+      <span class="md-button md-raised md-cornered" ng-click="signUpvm.signup($event)">Sign Up</span>
+
+    </div>
+
+  </div>
+</div>
