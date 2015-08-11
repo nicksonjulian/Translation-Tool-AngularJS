@@ -9,20 +9,20 @@
 	  		id:0,
 	  		title: "FEATURE1",
 	  		description: "feature1 desc",
-	  		imgsrc: "app/landing/assets/dog.jpg"
+	  		imgsrc: "app/components/images/dog.jpg"
   		},
 	  		{
 	  		id:1,
 	  		title: "FEATURE2",
 	  		description: "feature2 desc",
-	  		imgsrc: "app/landing/assets/cat.jpg"
+	  		imgsrc: "app/components/images/cat.jpg"
   		},
   		{
 	  		id:2,
 	  		title: "FEATURE3",
 	  		description: "feature3 desc",
-	  		imgsrc: "app/landing/assets/bird.jpg"
+	  		imgsrc: "app/components/images/bird.jpg"
   		}
   		]
   	);
-})();
+}) ();

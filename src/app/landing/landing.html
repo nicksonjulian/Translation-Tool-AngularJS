@@ -1,11 +1,20 @@
 <div ng-controller="LandingController as vm">
   <header class="buttons" >
     <div layout="row" layout-align="start">
-        <span class="md-button md-raised md-cornered">Button1</span>
+        <a ui-sref="sign-in">
+          <span class="md-button md-raised md-cornered">Sign In</span>
+        </a>
 
-        <span class="md-button md-raised md-cornered">Button2</span>
+        <a ui-sref="sign-up">
+          <span class="md-button md-raised md-cornered">Sign Up</span>
+        </a>
 
-        <span class="md-button md-raised md-cornered">Button3</span>
+        <a ui-sref="translation-list">
+          <span class="md-button md-raised md-cornered">Translation List</span>
+        </a>
+
+        <span class="md-button md-raised md-cornered">Sign out</span>
+
     </div>
   </header>
 
@@ -15,7 +24,15 @@
       <div class="paragraph">
         <h2> translate translate translate translate translate translate translate translate translate translate translate translate translate translate translate translate translate translate translate translate</h2>
       </div>
-      <span class="md-button md-raised md-cornered">CLICK ME TO START!</span>
+      <input type="text" ng-model="vm.wordinput" placeholder="enter">
+      <div layout="row" layout-align="center center">
+        <span class="md-button md-raised md-cornered">Create a new translation</span>
+        <span class="md-button md-raised md-cornered">Find meaning</span>
+        <span class="md-button md-raised md-cornered">Delete a translation</span>
+        <span class="md-button md-raised md-cornered">Set new meaning</span>
+      </div>
+
+    
     </div>
   </section>
 
@@ -51,8 +68,6 @@
         <img src="app/landing/assets/rightarrow.png">
       </a>
     </div>
-
-
   </div>
 
 
@@ -81,5 +96,3 @@
     </div>
   </section>
 </div>
-
-<script src="../bower_components/parse-js-sdk/lib/jging/parse.js"></script>

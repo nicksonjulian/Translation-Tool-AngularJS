@@ -8,7 +8,6 @@
   /** @ngInject */
   function routeConfig($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/landing');
-    
   }
 
 

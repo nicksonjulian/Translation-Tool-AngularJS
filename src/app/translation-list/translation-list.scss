@@ -1,0 +1,133 @@
+$primary-color: #71C6FF;
+
+@import url(http://fonts.googleapis.com/css?family=Arvo);
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
+body {
+  font-family: 'Arvo', serif;
+}
+
+.featureimg {
+  padding-top: 10%;
+  padding-left: 10%;
+  height: 60%;
+  width: auto;
+  max-width: 80%;
+}
+
+.featureimg:hover {
+  opacity: 1;
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.buttons {
+  background-color: $primary-color;
+}
+
+.first {
+  background-color: $primary-color;
+  height:550px;
+  margin-bottom: 0px;
+}
+
+.cover{
+  height:100%;
+  width:75%;
+  padding-left:25%;
+}
+
+.paragraph {
+  width: 50%;
+}
+
+.startbutton{
+  margin-top: 50px;
+}
+
+
+.carousel {
+  background-color: white;
+  height: 350px;
+  padding-left: 0px;
+}
+
+.description {
+  height: 100%; 
+}
+
+.information {
+  background-color: $primary-color;
+  height: 500px;
+}
+
+.features {
+  margin-top: 0px;
+  padding-bottom: 30px;
+  margin-bottom: 0px;
+}
+
+.feature {
+  height: 300px;
+  background-color: white;
+}
+
+.soc-medias {
+  margin-top: 0px;
+  background-color: yellow;
+  height: 60px;
+}
+
+.soc-medias {
+  div {
+    height: 100%;
+  }
+}
+
+.animate-switch-container {
+  position: relative;
+  background: white;
+  border: 1px solid black;
+  height: 40px;
+  overflow: hidden;
+}
+
+.animate-switch {
+  padding: 10px;
+}
+
+.animate-switch {
+    .ng-animate {
+      -webkit-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+      transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+
+      position:absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+}
+
+.animate-switch {
+  .ng-leave {
+    .ng-leave-active,
+    .animate-switch.ng-enter {
+      top: -50px;
+    }
+  }
+}
+
+.animate-switch {
+  .ng-leave,
+  .animate-switch {
+    .ng-enter {
+      .ng-enter-active {
+        top: 0;
+      }
+    }
+  }
+}
+
