@@ -13,7 +13,12 @@
         templateUrl: 'app/translation-list/translation-list.html',
         controller: 'TranslationListController',
         controllerAs: 'translation-list'
-      });  
+      })
+      .state('translation-list.detail', {
+        url: '/translation-list/:translation-id',
+        templateUrl: 'app/translation-list/translation-list.detail/translation-list.detail.html',
+        controller: 'TranslationListDetailController'
+      });
   }
 
 
