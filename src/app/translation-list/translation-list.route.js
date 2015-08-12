@@ -12,8 +12,7 @@
             'translationList', {
                 url: '/translation-list',
                 templateUrl: 'app/translation-list/translation-list.html',
-                controller: 'TranslationListController',
-                controllerAs: 'translation-list'
+                controller: 'TranslationListController'
             }
         )
             .state(

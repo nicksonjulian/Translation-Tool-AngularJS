@@ -10,16 +10,41 @@ body {
   background-color: $primary-color;
   height:100%;
   width: 100%;
+  min-height: 700px;
   
 }
 
 .mainregion {
   width:100%;
+
 }
 
-.table {
+.tableregion {
   background-color: white;
-  height: 800px;
-  round-border: 25px;
-  
+
+  .tableregion2 {
+  	width:100%;
+  	height:100%;
+
+  	.tableregion3 {
+  		height:100%;
+
+  		.translationTable{
+  			height:100%;
+  			width: 100%;
+  			border-collapse: collapse;
+
+			th {
+				background-color: #ebff00;
+			}
+  		}
+  	}
+  }
 }
+
+.lastregion {
+	background-color: $primary-color;
+	height: 50px;
+	width:100%;
+}
+

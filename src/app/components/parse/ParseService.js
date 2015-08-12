@@ -15,8 +15,9 @@
 
         Service.createData = createData;
         Service.setData = setData;
-        Service.getData = getData;
+        Service.getDataById = getDataById;
         Service.deleteData = deleteData;
+        Service.getAllData = getAllData;
 
         Parse.initialize(PARSE_APP_ID, PARSE_KEY);
 
@@ -40,7 +41,7 @@
             return newdata;
         }
 
-        function getData(id) {
+        function getDataById(id) {
             var query = new Parse.Query(Data);
             return query.get(
                 id, {
@@ -72,6 +73,12 @@
                     error: console.log
                 }
             );
+        }
+
+        function getAllData() {
+            var query = new Parse.Query(Data);
+            console.log(query);
+            return query;
         }
     }
 })();

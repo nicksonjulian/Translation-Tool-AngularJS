@@ -6,18 +6,22 @@
             <div flex="20">
             </div>
 
-            <div class="table" flex="60">
-                <div ui-view="section"></div>
-
-                List
+            <div class="tableregion" flex="60" layout="row" layout-align="center">
+                <div class="tableregion2" flex="100" ng-hide="vm.listshown">
+                    Click SHOW to show List
+                </div>
+                <div class="tableregion2" flex="100" ui-view="section" ng-show="vm.listshown"></div>
             </div>
 
             <div layout="column" layout-align="start center">
-                <span class="md-button md-raised md-cornered" ui-sref="translationList.detail({ translationId: 5454 })">Edit</span>
-                <span class="md-button md-raised md-cornered">Remove</span>
+                <span class="md-button md-raised md-cornered" ng-click="vm.listshown= true" ui-sref="translationList.detail({ translationId: 5454 })">SHOW LIST</span>
+                <span class="md-button md-raised md-cornered " ng-click="vm.listshown= false" ui-sref="translationList">HIDE LIST</span>
                 <span class="md-button md-raised md-cornered">Mark as Inactive</span>
             </div>
 
+        </div>
+
+        <div class="lastregion">
         </div>
 
     </div>

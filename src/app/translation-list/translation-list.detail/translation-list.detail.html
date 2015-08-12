@@ -1,1 +1,12 @@
-<div>Details</div>
+<div ng-controller="TranslationListDetailController as vm" class="tableregion3">
+	<table class="translationTable">
+		<tr>
+			<th>Word1</th>
+			<th>Word2</th>
+		</tr>
+		<tr ng-repeat="translation in vm.allTranslations">
+			<td>{{vm.capitalize(translation.get("v1"))}}</td>
+			<td>{{vm.capitalize(translation.get("v2"))}}</td>
+		</tr>
+	</table>
+</div>
