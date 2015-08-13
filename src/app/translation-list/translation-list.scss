@@ -34,12 +34,30 @@ body {
   			width: 100%;
   			border-collapse: collapse;
 
-			th {
-				background-color: #ebff00;
-			}
+			  th {
+				 background-color: #ebff00;
+			  }
   		}
   	}
   }
+}
+
+.edit-column {
+  width: 100px;
+  
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  padding-left: 20%;
+}
+
+.add-icon {
+  width: 20px;
+  height: 20px;
+  padding-left: 50%;
+  
 }
 
 .lastregion {
@@ -48,3 +66,11 @@ body {
 	width:100%;
 }
 
+
+.searchregion{
+  margin-left: 50px;
+  
+  input[type=search] { 
+    width:70%;
+  }
+}

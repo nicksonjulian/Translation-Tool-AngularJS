@@ -43,9 +43,11 @@
 
         function getDataById(id) {
             var query = new Parse.Query(Data);
-            return query.get(
+            query.get(
                 id, {
-                    success: console.log,
+                    success: function(data) {
+                        console.log("object retrieved " + id);
+                    },
                     error: console.log
                 }
             );
@@ -54,19 +56,22 @@
 
         //get data by k, set value with v
         function setData(id, v1, v2) {
-            var data = this.getData(id);
-            data.set("v1", v1);
-            data.set("v2", v2);
-            newdata.save(
-                null, {
-                    success: console.log,
+            var query = new Parse.Query(Data);
+            query.get(
+                id, {
+                    success: function(data) {
+                        data.set("v1", v1);
+                        data.set("v2", v2);
+                        data.save();
+                        console.log("object modified " + id);
+                    },
                     error: console.log
                 }
             );
         }
 
         function deleteData(id) {
-            var data = this.getData(id);
+            var data = Service.getDataById(id);
             data.destroy(
                 {
                     success: console.log,
