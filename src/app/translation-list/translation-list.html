@@ -1,29 +1,22 @@
 <div class="blue-background2" ng-controller="TranslationListController as vm">
+    <span ui-sref="landing">HOME</span>
     <div layout="column" layout-align="start center">
         <h1>TRANSLATION LIST</h1>
 
         <div class="mainregion" layout="row" layout-align="start start">
             <div flex="20">
                 <div layout="column" layout-align="start center">
-                <span class="md-button md-raised md-cornered" ng-click="vm.listshown= true" ui-sref="translationList.detail({ translationId: list })">SHOW LIST</span>
-                <span class="md-button md-raised md-cornered " ng-click="vm.listshown= false" ui-sref="translationList">HIDE LIST</span>
-                <span class="md-button md-raised md-cornered">Add</span>
-                <span class="md-button md-raised md-cornered">Delete</span>
-
+                <span class="md-button md-raised md-cornered" ui-sref="translationList.detail({ translationId: list })">SHOW LIST</span>
+                <span class="md-button md-raised md-cornered " ui-sref="translationList">HIDE LIST</span>
             </div>
             </div>
 
-            <div class="tableregion" flex="60" layout="row" layout-align="center">
-                <div class="tableregion2" flex="100" ng-hide="vm.listshown">
+            <div class="tableregion" flex="70" layout="row" layout-align="center">
+               <!--  <div class="tableregion2" flex="100" ng-hide="vm.listshown">
                     Click SHOW LIST!
-                </div>
-                <div class="tableregion2" flex="100" ui-view="section" ng-show="vm.listshown"></div>
+                </div> -->
+                <div class="tableregion2" flex="100" ui-view="section"></div>
             </div>
-
-            <div class="searchregion" layout-align="center center">
-                <input type="search" ng-model="vm.searchList" id="search" placeholder="Search..." />
-            </div>
-            
 
             
 

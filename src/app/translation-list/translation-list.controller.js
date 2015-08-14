@@ -7,12 +7,11 @@
 
     /** @ngInject */
     function TranslationListController(
+        $scope
 
     ) {
-
         var vm = this;
         vm.listshown = false;
-
 
     }
 })();

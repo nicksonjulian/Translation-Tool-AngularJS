@@ -13,7 +13,10 @@
           <span class="md-button md-raised md-cornered">Translation List</span>
         </a>
 
-        <span class="md-button md-raised md-cornered" ng-click="vm.logout($event)">Sign out</span>
+        <div ng-show="vm.hasUser">
+          <span> Hi, {{ vm.currentUsername }} do you want to log out? </span>
+          <span class="md-button md-raised md-cornered" ng-click="vm.logout($event)">Sign out</span>
+        </div>
 
     </div>
   </header>

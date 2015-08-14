@@ -1,32 +1,42 @@
 <div ng-controller="TranslationListDetailController as vm" class="tableregion3">
-	<table class="translationTable">
-		<tr>
-			<th class="edit-column">Edit</th>
-			<th>Word1</th>
-			<th>Word2</th>
-		</tr>
-		<tr ng-repeat="translation in vm.translations">
-			<td ng-hide="translation.editorEnabled">
-				<img class="icon" src="app/components/images/edit-icon.ico" ng-click="vm.editTrans($event, $index)">
-				<img class="icon" src="app/components/images/delete-icon.png">
-			</td>
-			<td ng-hide="translation.editorEnabled">{{ vm.capitalize(translation.get("v1")) }}</td>
-			<td ng-hide="translation.editorEnabled">{{ vm.capitalize(translation.get("v2")) }}</td>
-			<td ng-show="translation.editorEnabled">
-				<a href="#" ng-click="vm.saveTrans($index)">
-					<img class="icon" src="app/components/images/save-icon.gif">
-				</a>
-				<a href="#" ng-click="vm.disabledEditor($index)">
-					<img class="icon" src="app/components/images/cancel-icon.ico">
-				</a>
-			</td>
-			<td ng-show="translation.editorEnabled"><input ng-model="translation._serverData.v1"></td>
-			<td ng-show="translation.editorEnabled"><input ng-model="translation._serverData.v2"></td>
-		</tr>
-		<tr>
-			<td><img class="add-icon" src="app/components/images/add-icon.ico"></td>
-			<td><input ng-model="vm.newWord1"></td>
-			<td><input ng-model="vm.newWord2"></td>
-		</tr>
-	</table>
+	<div layout="row">
+		<div flex="80">
+			<table class="translationTable">
+				<tr class= "tableheader">
+					<th class="edit-column">Edit</th>
+					<th>Word1</th>
+					<th>Word2</th>
+				</tr>
+				<tr ng-repeat="translation in vm.translations | filter:vm.searchList">
+					<td ng-hide="translation.editorEnabled">
+						<img class="icon" src="app/components/images/edit-icon.ico" ng-click="vm.editTrans($index)">
+						<img class="icon" src="app/components/images/delete-icon.png" ng-click="vm.delTrans($index)">
+					</td>
+					<td ng-hide="translation.editorEnabled">{{ vm.capitalize(translation.get("v1")) }}</td>
+					<td ng-hide="translation.editorEnabled">{{ vm.capitalize(translation.get("v2")) }}</td>
+					<td ng-show="translation.editorEnabled">
+						<a href="#" ng-click="vm.saveTrans($index)">
+							<img class="icon" src="app/components/images/save-icon.gif">
+						</a>
+						<a href="#" ng-click="vm.disabledEditor($index)">
+							<img class="icon" src="app/components/images/cancel-icon.ico">
+						</a>
+					</td>
+					<td ng-show="translation.editorEnabled"><input ng-model="translation._serverData.v1"></td>
+					<td ng-show="translation.editorEnabled"><input ng-model="translation._serverData.v2"></td>
+				</tr>
+				<tr class="addnew-row">
+					<td><img class="add-icon" src="app/components/images/add-icon.ico" ng-click="vm.addTrans()"></td>
+					<td><input ng-model="vm.newWord1" placeholder="Add a new translation"></td>
+					<td><input ng-model="vm.newWord2" placeholder="Add a new translation"></td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="searchregion1">
+			<div class="searchregion" layout-align="center center">
+                <input type="search" ng-model="vm.searchList" id="search" placeholder="Search..." />
+            </div>
+        </div>
+
 </div>

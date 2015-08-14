@@ -29,23 +29,35 @@ body {
   	.tableregion3 {
   		height:100%;
 
-  		.translationTable{
+  		.translationTable {
   			height:100%;
   			width: 100%;
   			border-collapse: collapse;
 
-			  th {
-				 background-color: #ebff00;
-			  }
+        .tableheader {
+          width: 50%;
+
+          th {
+           background-color: #ebff00;
+           width:100px;
+          }
+        }
   		}
   	}
   }
 }
 
-.edit-column {
-  width: 100px;
+.addnew-row {
+  td {
+    input {
+      width: 80%;
+    }
+
+  }
   
 }
+
+
 
 .icon {
   width: 20px;
@@ -56,7 +68,7 @@ body {
 .add-icon {
   width: 20px;
   height: 20px;
-  padding-left: 50%;
+  padding-left: 40%;
   
 }
 
@@ -66,10 +78,13 @@ body {
 	width:100%;
 }
 
+.searchregion1 {
+  background-color: $primary-color;
+}
 
 .searchregion{
   margin-left: 50px;
-  
+
   input[type=search] { 
     width:70%;
   }

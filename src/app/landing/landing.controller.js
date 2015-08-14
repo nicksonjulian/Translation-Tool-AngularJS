@@ -6,11 +6,15 @@
     .controller('LandingController', LandingController);
 
   /** @ngInject */
-  function LandingController($interval, FEATURE_LIST, parseService, loginService) {
+  function LandingController($interval, FEATURE_LIST, loginService) {
     var vm = this;
   	vm.currfeature = 0;
   	vm.descriptions = ["Feature1","Feature2","Feature3"];
     vm.FEATURE_LIST = FEATURE_LIST;
+    vm.currentUsername = loginService.getCurrentUser();
+    vm.hasUser = vm.currentUsername ? true : false;
+    console.log("current user is " + loginService.getCurrentUser());
+    console.log(vm.hasUser);
 
   	var intervalchange = function() {
   		if (vm.currfeature === 2) {

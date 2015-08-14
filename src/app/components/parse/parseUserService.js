@@ -1,9 +1,8 @@
 (function () {
     'use strict';
 
-    angular
-        .module('translationToolAngularJs')
-        .service('parseService', Service);
+    angular.module('translationToolAngularJs')
+        .service('parseUserService', Service);
 
     Service.$inject = ['PARSE_APP_ID', 'PARSE_KEY'];
 
@@ -22,16 +21,17 @@
 
         Parse.initialize(PARSE_APP_ID, PARSE_KEY);
 
-        var Data = Parse.Object.extend("Data");
+        var Data = Parse.Object.extend("UserData");
 
         return Service;
 
         /////////////////////////////////
 
-        function createData(v1, v2) {
+        function createData(v1, v2, user) {
             var newdata = new Data();
             newdata.set("v1", v1);
             newdata.set("v2", v2);
+            newdata.set("user", user)
             newdata.save(
                 null, {
                     success: console.log,
@@ -81,9 +81,11 @@
             );
         }
 
-        function getAllData() {
+        function getAllData(user) {
             var query = new Parse.Query(Data);
-            console.log(query);
+            console.log("theuser of the data want to be taken " + user)
+            query.equalTo("user", user)
+            console.log("success getAllData");
             return query;
         }
     }

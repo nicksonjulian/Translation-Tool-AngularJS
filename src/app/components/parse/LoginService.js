@@ -3,22 +3,38 @@
 
   angular
     .module('translationToolAngularJs')
-    .service('loginService', function() {
+    .service('loginService', Service1);
 
-        var app_id = "feb37edoK2V51h0k5Vefnf5rrMIP7wYZgLfjnwqo";
-        var js_key = "PHp0oirB0WnG110mHqqp2pyXBcV6kB61t1h9qPGW";
-        Parse.initialize(app_id, js_key);
-   
+    Service1.$inject = ['PARSE_APP_ID', 'PARSE_KEY'];
 
-        this.signUp = function signUp(username, email, password) {
+    function Service1(
+        PARSE_APP_ID,
+        PARSE_KEY
+    ) {
+
+        Parse.initialize(PARSE_APP_ID, PARSE_KEY);
+        var Service = this;
+        Service.currentUsername = getCurrentUser();
+        Service.signUp = signUp;
+        Service.logIn = logIn;
+        Service.getUser = getUser;
+        Service.getCurrentUser = getCurrentUser;
+        Service.logOut = logOut;
+
+        return Service;
+        
+        //////////////////////////////
+
+
+        function signUp(username, email, password) {
         	var newUser = new Parse.User();
         	newUser.set("username", username);
         	newUser.set("email", email);
             newUser.set("password", password);
         	newUser.signUp(null, {
         		success: function(newUser) {
-                    console.log("New User created with id " + newUser.id + " name: " + newUser.get("username"));
-
+                    this.currentUsername = username;
+                    console.log("New User created with id " + newUser.id + " name: " + Service.currentUsername);
         		},
         		error: function(newUser, error) {
                     console.log("Failed creating User " + error.message);
@@ -27,19 +43,21 @@
         	return newUser.id;
         };
 
-        this.logIn = function logIn(username, password) {
+        function logIn(username, password) {
             Parse.User.logIn(username, password, {
               success: function(user) {
+                Service.currentUsername = username;
                 console.log("Login successful " + username);
               },
               error: function(user, error) {
                 console.log("Failed" + error.message);
+                return false;
                 // The login failed. Check error to see why.
               }
             });
         }
 
-        this.getUser = function getUser(id) {
+        function getUser(id) {
         	var query = new Parse.Query(User);
         	return query.get(id, {
         		success: function(object) {
@@ -52,16 +70,20 @@
         	});
         };
 
-        this.getCurrentUser = function getCurrentUser() {
+        function getCurrentUser() {
             var currentUser = Parse.User.current();
             if (currentUser) {
-                return currentUser;
+                return currentUser.get("username");
             }
             else {
-                console.log("no user is currently logged in")
+                console.log("no user is currently logged in");
+                return null;
             }
         }
 
-        this.logOut = Parse.User.logOut();
-    });
+        function logOut(){
+            Parse.User.logOut();
+        }
+    }
+
 })();
