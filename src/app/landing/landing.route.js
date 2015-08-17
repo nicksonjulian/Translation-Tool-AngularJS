@@ -13,7 +13,13 @@
         templateUrl: 'app/landing/landing.html',
         controller: 'LandingController',
         controllerAs: 'landing'
-      });  
+      })
+      .state('landing.userLogged', {
+        url: '/:username',
+        templateUrl: 'app/landing/landing.html',
+        controller: 'LandingControllerUser'
+
+      });
   }
 
 

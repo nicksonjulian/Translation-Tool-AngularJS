@@ -3,17 +3,18 @@
 
   angular
     .module('translationToolAngularJs')
-    .controller('LandingController', LandingController);
+    .controller('LandingControllerUser', LandingControllerUser);
 
   /** @ngInject */
-  function LandingController($interval, FEATURE_LIST, loginService, parseService) {
+  function LandingControllerUser($interval, FEATURE_LIST, loginService) {
     var vm = this;
   	vm.currfeature = 0;
   	vm.descriptions = ["Feature1","Feature2","Feature3"];
     vm.FEATURE_LIST = FEATURE_LIST;
     vm.currentUsername = loginService.getCurrentUser();
-    vm.hasUser = loginService.getCurrentUser() ? true : false;
-    vm.displayMeaning = displayMeaning;
+    vm.hasUser = true;
+    console.log("current user is " + loginService.getCurrentUser());
+    console.log(vm.hasUser);
 
   	var intervalchange = function() {
   		if (vm.currfeature === 2) {
@@ -26,7 +27,7 @@
 
   	var promise = $interval(intervalchange, 5000);  	
 
-  	vm.changel = function(event) {
+  	vm.changel = function(event){
   		event.preventDefault();
   		$interval.cancel(promise);
   		if (vm.currfeature === 0) {
@@ -38,7 +39,7 @@
 	  	promise = $interval(intervalchange, 5000);
   	};
 
-  	vm.changer = function(event) {
+  	vm.changer = function(event){
   		event.preventDefault();
   		$interval.cancel(promise);
   		if (vm.currfeature === 2) {
@@ -50,43 +51,16 @@
   		promise = $interval(intervalchange, 5000);
   	};
 
-  	vm.changefeature = function(event, id) {
+  	vm.changefeature = function(event, id){
   		event.preventDefault();
   		$interval.cancel(promise);
   		vm.currfeature = id;
   		promise = $interval(intervalchange, 5000);
   	};
 
-    vm.logout = function(event) {
+    vm.logout = function(event){
       event.preventDefault();
       loginService.logOut();
-    }
-
-
-
-    //////////
-
-    function displayMeaning() {
-      var query = parseService.getMeaning(vm.wordinput);
-      query.find({
-        success: function(results) {
-          vm.theword = "";
-          vm.meaning = "";
-          vm.theword = vm.wordinput;
-          vm.meaning += "->";
-          for (var i = 0; i < results.length; i++) {
-            vm.meaning += " ";
-            vm.meaning += results[i].get("v2");
-            console.log(vm.meaning);
-          }
-        },
-        error: function(error) {
-          console.log("fail");
-          vm.meaning += "word is not found";
-        }
-      });
-
-
     }
 
     // parseService.createData("aku", "I");

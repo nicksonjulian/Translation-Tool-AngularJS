@@ -1,19 +1,23 @@
 <div ng-controller="LandingController as vm">
   <header class="buttons" >
     <div layout="row" layout-align="start">
-        <a ui-sref="sign-in">
-          <span class="md-button md-raised md-cornered">Sign In</span>
-        </a>
 
-        <a ui-sref="sign-up">
-          <span class="md-button md-raised md-cornered">Sign Up</span>
-        </a>
+        <div ng-hide="vm.hasUser">
+          <a ui-sref="sign-in">
+            <span class="md-button md-raised md-cornered">Sign In</span>
+          </a>
 
-        <a ui-sref="translationList">
-          <span class="md-button md-raised md-cornered">Translation List</span>
-        </a>
+          <a ui-sref="sign-up">
+            <span class="md-button md-raised md-cornered">Sign Up</span>
+          </a>
+        </div>
+
+      
 
         <div ng-show="vm.hasUser">
+          <a ui-sref="translationList">
+            <span class="md-button md-raised md-cornered">Translation List</span>
+          </a>
           <span> Hi, {{ vm.currentUsername }} do you want to log out? </span>
           <span class="md-button md-raised md-cornered" ng-click="vm.logout($event)">Sign out</span>
         </div>
@@ -30,10 +34,11 @@
       <input type="text" ng-model="vm.wordinput" placeholder="enter">
       <div layout="row" layout-align="center center">
         <span class="md-button md-raised md-cornered">Create a new translation</span>
-        <span class="md-button md-raised md-cornered">Find meaning</span>
+        <span class="md-button md-raised md-cornered" ng-click="vm.displayMeaning()">Find meaning</span>
         <span class="md-button md-raised md-cornered">Delete a translation</span>
         <span class="md-button md-raised md-cornered">Set new meaning</span>
       </div>
+      {{vm.theword}} {{vm.meaning}}
 
     
     </div>

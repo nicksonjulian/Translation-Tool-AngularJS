@@ -7,6 +7,15 @@ body {
   font-family: 'Arvo', serif;
 }
 
+.md-display-3:hover {
+  opacity: 1;
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+  
+}
+
 .featureimg {
   padding-top: 10%;
   padding-left: 10%;

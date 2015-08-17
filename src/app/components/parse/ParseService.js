@@ -19,6 +19,7 @@
         Service.getDataById = getDataById;
         Service.deleteData = deleteData;
         Service.getAllData = getAllData;
+        Service.getMeaning = getMeaning;
 
         Parse.initialize(PARSE_APP_ID, PARSE_KEY);
 
@@ -86,5 +87,14 @@
             console.log(query);
             return query;
         }
+
+        function getMeaning(v1) {
+            var query = new Parse.Query(Data);
+            query.equalTo("v1", v1);
+            return query;
+
+        }
+
+
     }
 })();

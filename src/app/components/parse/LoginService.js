@@ -10,6 +10,7 @@
     function Service1(
         PARSE_APP_ID,
         PARSE_KEY
+
     ) {
 
         Parse.initialize(PARSE_APP_ID, PARSE_KEY);
@@ -43,11 +44,12 @@
         	return newUser.id;
         };
 
-        function logIn(username, password) {
-            Parse.User.logIn(username, password, {
+        function logIn(username, password, $state) {
+            return Parse.User.logIn(username, password, {
               success: function(user) {
                 Service.currentUsername = username;
                 console.log("Login successful " + username);
+                console.log("yes");
               },
               error: function(user, error) {
                 console.log("Failed" + error.message);
