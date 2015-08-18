@@ -7,7 +7,6 @@
 
     /** @ngInject */
     function TranslationListController(
-        $scope
 
     ) {
         var vm = this;

@@ -72,10 +72,13 @@
         }
 
         function deleteData(id) {
-            var data = Service.getDataById(id);
-            data.destroy(
-                {
-                    success: console.log,
+            var query = new Parse.Query(Data);
+            query.get(
+                id, {
+                    success: function(data) {
+                        console.log(data);
+                        data.destroy({});
+                    },
                     error: console.log
                 }
             );

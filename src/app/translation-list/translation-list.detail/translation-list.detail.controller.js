@@ -31,7 +31,7 @@
             }
         });
 
-        vm.searchList = $scope.$parent.vm.searchList;
+        vm.searchList = vm.searchList;
 
 
 
@@ -48,6 +48,7 @@
             console.log(vm.translations[index]._serverData.v1);
             console.log(vm.translations[index].id);
             parseUserService.setData(vm.translations[index].id, vm.translations[index]._serverData.v1, vm.translations[index]._serverData.v2);
+            $scope.$applyAsync();
             vm.translations[index].editorEnabled = false;
         }
 
@@ -57,7 +58,7 @@
 
         function addTrans() {
             console.log("the current user " + loginService.currentUsername);
-            parseUserService.createData(vm.newWord1, vm.newWord2, loginService.currentUsername);
+            parseUserService.createData(vm.capitalize(vm.newWord1), vm.capitalize(vm.newWord2), loginService.currentUsername);
             vm.newWord1 = "";
             vm.newWord2 = "";
         }

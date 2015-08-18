@@ -12,8 +12,8 @@
 						<img class="icon" src="app/components/images/edit-icon.ico" ng-click="vm.editTrans($index)">
 						<img class="icon" src="app/components/images/delete-icon.png" ng-click="vm.delTrans($index)">
 					</td>
-					<td ng-hide="translation.editorEnabled">{{ vm.capitalize(translation.get("v1")) }}</td>
-					<td ng-hide="translation.editorEnabled">{{ vm.capitalize(translation.get("v2")) }}</td>
+					<td ng-hide="translation.editorEnabled">{{ translation.get("v1") }}</td>
+					<td ng-hide="translation.editorEnabled">{{ translation.get("v2") }}</td>
 					<td ng-show="translation.editorEnabled">
 						<a href="#" ng-click="vm.saveTrans($index)">
 							<img class="icon" src="app/components/images/save-icon.gif">

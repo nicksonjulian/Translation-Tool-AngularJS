@@ -16,7 +16,7 @@
 
         Service.createData = createData;
         Service.setData = setData;
-        Service.getDataById = getDataById;
+       // Service.getDataById = getDataById;
         Service.deleteData = deleteData;
         Service.getAllData = getAllData;
         Service.getMeaning = getMeaning;
@@ -43,17 +43,17 @@
             return newdata;
         }
 
-        function getDataById(id) {
-            var query = new Parse.Query(Data);
-            query.get(
-                id, {
-                    success: function(data) {
-                        console.log("object retrieved " + id);
-                    },
-                    error: console.log
-                }
-            );
-        }
+        // function getDataById(id) {
+        //     var query = new Parse.Query(Data);
+        //     query.get(
+        //         id, {
+        //             success: function(data) {
+        //                 console.log("object retrieved " + id);
+        //             },
+        //             error: console.log
+        //         }
+        //     );
+        // }
 
 
         //get data by k, set value with v
@@ -73,10 +73,13 @@
         }
 
         function deleteData(id) {
-            var data = Service.getDataById(id);
-            data.destroy(
-                {
-                    success: console.log,
+            var query = new Parse.Query(Data);
+            query.get(
+                id, {
+                    success: function(data) {
+                        console.log(data);
+                        data.destroy({});
+                    },
                     error: console.log
                 }
             );
