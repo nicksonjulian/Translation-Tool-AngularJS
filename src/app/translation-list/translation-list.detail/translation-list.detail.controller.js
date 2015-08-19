@@ -7,10 +7,9 @@
 
 
     /** @ngInject */
-    function TranslationListDetailController(parseUserService, loginService, $scope) {
+    function TranslationListDetailController(parseUserService, loginService) {
     	var vm = this;
     	vm.alldatas = parseUserService.getAllData(loginService.getCurrentUser());
-        vm.capitalize = capitalize;
         vm.editTrans = editTrans;
         vm.saveTrans = saveTrans;
         vm.disabledEditor = disabledEditor;
@@ -48,7 +47,6 @@
             console.log(vm.translations[index]._serverData.v1);
             console.log(vm.translations[index].id);
             parseUserService.setData(vm.translations[index].id, vm.translations[index]._serverData.v1, vm.translations[index]._serverData.v2);
-            $scope.$applyAsync();
             vm.translations[index].editorEnabled = false;
         }
 
@@ -69,13 +67,6 @@
             }
         }
 
-        function capitalize(string) {
-        	if (string.length > 1) {
-		    	return string.charAt(0).toUpperCase() + string.substr(1).toLowerCase();
-		    } else if (string.length === 1) {
-		    	return string;
-		    }
-		}
 
 
     	//console.log(JSON.stringify(vm.alldatas));
