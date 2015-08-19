@@ -1,5 +1,5 @@
 describe("Controller: TranslationListDetailController", function() {
-	var scope, restService, $location;
+	var scope, parseUserService, loginService, $location;
 
 	beforeEach(function() {
 		var mockRestService = {};
@@ -66,5 +66,6 @@ describe("Controller: TranslationListDetailController", function() {
 
 		]);
 	});
+
 
 });

@@ -6,7 +6,7 @@
     .controller('LandingController', LandingController);
 
   /** @ngInject */
-  function LandingController($interval, FEATURE_LIST, loginService, parseService) {
+  function LandingController($interval, FEATURE_LIST, loginService, parseService, $state) {
     var vm = this;
   	vm.currfeature = 0;
   	vm.descriptions = ["Feature1","Feature2","Feature3"];
@@ -60,6 +60,8 @@
     vm.logout = function(event) {
       event.preventDefault();
       loginService.logOut();
+      $state.go("landing", {}, {reload: true});
+
     }
 
 

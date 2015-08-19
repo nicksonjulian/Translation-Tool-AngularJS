@@ -5,11 +5,12 @@
     .module('translationToolAngularJs')
     .service('loginService', Service1);
 
-    Service1.$inject = ['PARSE_APP_ID', 'PARSE_KEY'];
+    Service1.$inject = ['PARSE_APP_ID', 'PARSE_KEY', '$q'];
 
     function Service1(
         PARSE_APP_ID,
-        PARSE_KEY
+        PARSE_KEY,
+        $q
 
     ) {
 
@@ -44,19 +45,20 @@
         	return newUser.id;
         };
 
-        function logIn(username, password, $state) {
-            return Parse.User.logIn(username, password, {
-              success: function(user) {
-                Service.currentUsername = username;
-                console.log("Login successful " + username);
-                console.log("yes");
-              },
-              error: function(user, error) {
-                console.log("Failed" + error.message);
-                return false;
-                // The login failed. Check error to see why.
-              }
-            });
+        function logIn(username, password, $q) {
+            // return Parse.User.logIn(username, password, {
+            //   success: function(user) {
+            //     Service.currentUsername = username;
+            //     console.log("Login successful " + username);
+            //     console.log("yes");
+            //   },
+            //   error: function(user, error) {
+            //     console.log("Failed" + error.message);
+            //     return false;
+            //   }
+            // });
+
+            return Parse.User.logIn(username, password);
         }
 
         function getUser(id) {

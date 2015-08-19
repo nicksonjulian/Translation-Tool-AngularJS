@@ -7,7 +7,7 @@
 
 
     /** @ngInject */
-    function TranslationListDetailController(parseUserService, loginService) {
+    function TranslationListDetailController(parseUserService, loginService, $state) {
     	var vm = this;
     	vm.alldatas = parseUserService.getAllData(loginService.getCurrentUser());
         vm.editTrans = editTrans;
@@ -15,6 +15,7 @@
         vm.disabledEditor = disabledEditor;
         vm.addTrans = addTrans;
         vm.delTrans = delTrans;
+        vm.capitalize = capitalize;
 
     	vm.alldatas.find({
             success: function(results) {
@@ -59,6 +60,7 @@
             parseUserService.createData(vm.capitalize(vm.newWord1), vm.capitalize(vm.newWord2), loginService.currentUsername);
             vm.newWord1 = "";
             vm.newWord2 = "";
+            $state.go("translationList.detail", {}, {reload: true});
         }
 
         function delTrans(index) {
@@ -67,6 +69,9 @@
             }
         }
 
+        function capitalize(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
 
 
     	//console.log(JSON.stringify(vm.alldatas));
