@@ -23,7 +23,6 @@
                 console.log(results);
                 for (var i=0; i<results.length; ++i) {
                     vm.translations[i].editorEnabled = false;
-                    console.log(results[i]._serverData.v1);
                 }
             },
             error: function(error) {
@@ -31,10 +30,7 @@
             }
         });
 
-        vm.searchList = vm.searchList;
-
-
-
+        // useless a = a;
 
         ///////////////////////////
 
@@ -72,10 +68,6 @@
         function capitalize(string) {
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
-
-
-    	//console.log(JSON.stringify(vm.alldatas));
-    	//console.log(JSON.stringify(parseUserService.getAllData()));
     }
 
 })();

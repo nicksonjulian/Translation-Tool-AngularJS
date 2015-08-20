@@ -1,8 +1,22 @@
 (function () {
     'use strict';
 
-	xdescribe("Controller: TranslationListDetailController", function() {
-		var scope, parseUserService, loginService, $location;
+	describe("Controller: TranslationListDetailController", function() {
+
+
+		var TRANSLATION_LIST = [ {
+				id: 0,
+				v1: "Hello",
+				v2: "Hallo",
+				editorEnabled: false
+			}, {
+				id: 1,
+				v1: "Saya",
+				v2: "I",
+				editorEnabled: false
+			}];
+
+		var $scope, parseUserService, loginService, $location, $controller;
 
 		beforeEach(function() {
 			var mockParseUserService = {};
@@ -13,19 +27,7 @@
 			});
 
 			inject(function($q) {
-				mockParseUserService.data =
-				[
-				{
-					id: 0,
-					v1: "Hello",
-					v2: "Hallo"
-				},
-				{
-					id: 1,
-					v1: "Saya",
-					v2: "I"
-				}
-				];
+				mockParseUserService.data = TRANSLATION_LIST;
 
 				mockParseUserService.createData = function(v1, v2, user) {
 					var id = this.data.length;
@@ -39,53 +41,42 @@
 					this.data.push(item);
 				};
 
-				mockParseUserService.getAllData = function(user) {
-					var defer = $q.defer();
-        			defer.resolve(this.data);
-        			return defer.promise;
-				}
+				mockParseUserService.getAllData = function() {
+					var Service = this;
+					return {
+						find: function(options) {
+							if (angular.isFunction(options.success)) {
+								options.success(Service.data);
+							}
+						}
+					};
+				};
 
 				mockLoginService.getCurrentUser = function() {
 					return "fakeUser"
-				}
+				};
 
 			});
 		});
 
-		beforeEach(inject(function($controller, $rootScope, _$location_, _parseUserService_, _loginService_) {
-			console.log("bay");
-			scope = $rootScope.$new();
+		beforeEach(inject(function(_$controller_, _$location_, _parseUserService_, _loginService_) {
+			$scope = {};
 			$location = _$location_;
+			$controller = _$controller_;
 			parseUserService = _parseUserService_;
 			loginService = _loginService_;
-
-			$controller("TranslationListDetailController", {$scope: scope, parseUserService: parseUserService, loginService: loginService});
-			scope.editorEnabled = false;
-			scope.translations = parseUserService.data;
-			scope.$digest();
-
 		}));
 
-		xit('should contain all the translations at startup', function() {
-			expect(scope.translations).toEqual([
-				{
-					id: 0,
-					v1: "Hello",
-					v2: "Hallo"
-				},
-				{
-					id: 1,
-					v1: "Saya",
-					v2: "I"
-				}
-
-			]);
+		it('should contain all the translations at startup', function() {
+			var vm = $controller("TranslationListDetailController", { $scope: $scope, parseUserService: parseUserService, loginService: loginService });
+			expect(vm.translations).toEqual(TRANSLATION_LIST);
 		});
 
 
-		xit('should enable editor of translations at index 0', function() {
-			scope.editTrans(0);
-			expect(scope.translations[0].editorEnabled).toEqual(true);
+		it('should enable editor of translations at index 0', function() {
+			var vm = $controller("TranslationListDetailController", { $scope: $scope, parseUserService: parseUserService, loginService: loginService });
+			vm.editTrans(0);
+			expect(vm.translations[0].editorEnabled).toEqual(true);
 		})
 
 	});

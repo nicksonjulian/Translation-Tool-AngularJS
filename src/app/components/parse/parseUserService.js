@@ -87,7 +87,7 @@
         function getAllData(user) {
             var query = new Parse.Query(Data);
             console.log("theuser of the data want to be taken " + user)
-            query.equalTo("user", user)
+            query.equalTo("user", user);
             console.log("success getAllData");
             return query;
         }
