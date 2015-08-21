@@ -41,8 +41,6 @@
         }
 
         function saveTrans(index) {
-            console.log(vm.translations[index]._serverData.v1);
-            console.log(vm.translations[index].id);
             parseUserService.setData(vm.translations[index].id, vm.translations[index]._serverData.v1, vm.translations[index]._serverData.v2);
             vm.translations[index].editorEnabled = false;
         }
@@ -52,7 +50,6 @@
         }
 
         function addTrans() {
-            console.log("the current user " + loginService.currentUsername);
             parseUserService.createData(vm.capitalize(vm.newWord1), vm.capitalize(vm.newWord2), loginService.currentUsername);
             vm.newWord1 = "";
             vm.newWord2 = "";
@@ -66,7 +63,9 @@
         }
 
         function capitalize(string) {
-            return string.charAt(0).toUpperCase() + string.slice(1);
+            if (string.length > 0)
+                return string.charAt(0).toUpperCase() + string.slice(1);
+            return undefined;
         }
     }
 
