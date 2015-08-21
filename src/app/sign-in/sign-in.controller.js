@@ -6,23 +6,22 @@
     .controller('SignInController', SignInController);
 
   /** @ngInject */
-  function SignInController($interval, loginService, $state) {
-  	var signInvm = this;
-  	signInvm.login = function login(event) {
+  function SignInController(loginService, $state) {
+  	var vm = this;
+  	vm.logIn = function logIn(event) {
   		event.preventDefault();
-  		if (signInvm.username && signInvm.password) {
-        loginService.logIn(signInvm.username, signInvm.password).then(
+  		if (vm.username && vm.password) {
+        loginService.logIn(vm.username, vm.password).then(
           function() {
-            console.log("Login successful!");
-            $state.go("landing.userLogged", {"username": signInvm.username});
+            $state.go("landing.userLogged", {"username": vm.username});
           },
           function(error) {
             console.error('error!');
           }
         );
-  			// if (loginService.logIn(signInvm.username, signInvm.password) === true) {
+  			// if (loginService.logIn(vm.username, vm.password) === true) {
      //      console.log("yes, its true");
-     //      $state.go("landing/signInvm.username({ username: signInvm.username })");
+     //      $state.go("landing/vm.username({ username: vm.username })");
      //    }
   		}
   		else {
