@@ -19,11 +19,18 @@ wrench.readdirSyncRecursive('./gulp').filter(function(file) {
   require('./gulp/' + file);
 });
 
-
 /**
  *  Default task clean temporaries directories and launch the
  *  main optimization build task
  */
 gulp.task('default', ['clean'], function () {
   gulp.start('build');
+});
+
+gulp.task('serveprod', function() {
+  connect.server({
+    root: [src/app/],
+    port: process.env.PORT || 5000, // localhost:5000
+    livereload: false
+  });
 });

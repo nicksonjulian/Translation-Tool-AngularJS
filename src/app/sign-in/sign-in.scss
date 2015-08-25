@@ -6,26 +6,29 @@ body {
   font-family: 'Arvo', serif;
 }
 
-.blue-background{
+.blue-background {
   background: linear-gradient(to bottom, white 40%, $primary-color 60%);
   height: 700px;
 }
 
-.form-region{
+
+.form-region {
   padding-top: 60px;
   margin-top: 20px;
   width:600px;
   height:300px;
   border-radius: 15px;
   background:#E6E6E6;
-}
-
-.form-region{
-  input{
+  input {
     margin: 5px 0 5px 0;
 
   }
-  span{
+  span {
     margin-top: 60px;
+  }
+
+  div {
+    color: red;
+
   }
 }
