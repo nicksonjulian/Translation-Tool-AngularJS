@@ -86,10 +86,13 @@
 
         function getAllData(user) {
             var query = new Parse.Query(Data);
+            query.limit(20);
             console.log("theuser of the data want to be taken " + user)
             query.equalTo("user", user);
             console.log("success getAllData");
             return query;
         }
+
+
     }
 })();

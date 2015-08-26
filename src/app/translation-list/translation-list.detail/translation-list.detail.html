@@ -7,7 +7,7 @@
 					<th>Word1</th>
 					<th>Word2</th>
 				</tr>
-				<tr ng-repeat="translation in vm.translations | filter:vm.searchList">
+				<tr ng-repeat="translation in vm.displayeddata | filter:vm.searchList">
 					<td ng-hide="translation.editorEnabled">
 						<img class="icon" src="app/components/images/edit-icon.ico" ng-click="vm.editTrans($index)">
 						<img class="icon" src="app/components/images/delete-icon.png" ng-click="vm.delTrans($index)">
@@ -31,12 +31,19 @@
 					<td><input ng-model="vm.newWord2" placeholder="Add a new translation"></td>
 				</tr>
 			</table>
+			
+			<div class="transnavbar">
+				<span class="transnav" ng-repeat="per10 in vm.dataper10" ng-click="vm.changenavtrans(per10 - 1)">
+					{{ per10 }}
+				</span>
+			</div>
 		</div>
+
 
 		<div class="searchregion1">
 			<div class="searchregion" layout-align="center center">
                 <input type="search" ng-model="vm.searchList" id="search" placeholder="Search..." />
             </div>
         </div>
-
+    </div>
 </div>
