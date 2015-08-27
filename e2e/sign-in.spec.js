@@ -1,12 +1,16 @@
 'use strict';
 
+describe('Sign In view', function() {
 
-describe('sign-in view', function() {
-	var page;
+    var page;
 
 	beforeEach(function() {
-    browser.get('app/sign-in/sign-in.html');
-		page = require('./sign-in.po');
+        browser.get('/#/sign-in');
+        page = require('./sign-in.po');
+	});
+
+	it('should test', function() {
+		expect('String').toBe('String');
 	});
 
 	it('login should be successful', function() {
