@@ -1,12 +1,14 @@
 'use strict';
 
+var SignInPage = require('./sign-in.po');
+
 describe('Sign In view', function() {
 
     var page;
 
 	beforeEach(function() {
         browser.get('/#/sign-in');
-        page = require('./sign-in.po');
+        page = new SignInPage();
 	});
 
 	it('should test', function() {

@@ -1,6 +1,6 @@
 'use strict';
 
-var SignInPage = function() {
+function SignInPage() {
     this.usernameField = element(by.model('signInvm.username')),
     this.passwordField = element(by.model('signInvm.password')),
     this.signInButton = element(by.css('.md-button')),
@@ -10,6 +10,6 @@ var SignInPage = function() {
         this.passwordField.sendKeys(password);
         this.signInButton.click();
     }
-};
+}
 
-module.exports = new SignInPage();
+module.exports = SignInPage;
