@@ -1,6 +1,15 @@
 (function() {
   'use strict';
 
+  /**
+    * @ngdoc service
+    * @name loginService
+    * 
+    * @description
+    * Service that handles user login, logout, signout, etc.
+    * Makes use of Parse.User.
+    *
+    */
   angular
     .module('translationToolAngularJs')
     .service('loginService', Service1);
@@ -27,7 +36,20 @@
         
         //////////////////////////////
 
-
+        /**
+         * @ngdoc method
+         * @name loginService#signUp
+         * @methodOf loginService
+         * @description
+         *
+         * Creates a new user account.
+         *
+         * @param {String} username The username.
+         * @param {String} email The email to be associated with the account.
+         * @param {String} password The password.
+         * @returns {void} void
+         *
+         */
         function signUp(username, email, password) {
         	var newUser = new Parse.User();
         	newUser.set("username", username);
@@ -42,38 +64,62 @@
                     console.log("Failed creating User " + error.message);
         		}
         	});
-        	return newUser.id;
+        	//return newUser.id;
         };
 
-        function logIn(username, password, $q) {
-            // return Parse.User.logIn(username, password, {
-            //   success: function(user) {
-            //     Service.currentUsername = username;
-            //     console.log("Login successful " + username);
-            //     console.log("yes");
-            //   },
-            //   error: function(user, error) {
-            //     console.log("Failed" + error.message);
-            //     return false;
-            //   }
-            // });
-
+        /**
+         * @ngdoc method
+         * @name loginService#logIn
+         * @methodOf loginService
+         * @description
+         *
+         * Logs in a user.
+         *
+         * @param {String} username The username.
+         * @param {String} email The email to be associated with the account.
+         * @returns {void} void
+         *
+         */
+        function logIn(username, password) {
             return Parse.User.logIn(username, password);
         }
 
-        function getUser(id) {
-        	var query = new Parse.Query(User);
-        	return query.get(id, {
-        		success: function(object) {
-                    console.log("successfully retrieving User" + object.get("v1")) ;
+        /**
+         * @ngdoc method
+         * @name loginService#getUser
+         * @methodOf loginService
+         * @description
+         *
+         * Retrieves a user object by its id.
+         *
+         * @param {id} username The username.
+         * @returns {void} void
+         *
+         */
+        // function getUser(id) {
+        // 	var query = new Parse.Query(User);
+        // 	return query.get(id, {
+        // 		success: function(object) {
+        //             console.log("successfully retrieving User" + object.get("v1")) ;
 
-        		},
-        		error: function(object, error) {
-                    console.log("failed retrieving User");
-        		}
-        	});
-        };
+        // 		},
+        // 		error: function(object, error) {
+        //             console.log("failed retrieving User");
+        // 		}
+        // 	});
+        // };
 
+        /**
+         * @ngdoc method
+         * @name loginService#getCurrentUser
+         * @methodOf loginService
+         * @description
+         *
+         * Retrieves current logged-in user.
+         *
+         * @returns {String} the username of current logged User, does not return anything if no user's currently logged-in.
+         *
+         */
         function getCurrentUser() {
             var currentUser = Parse.User.current();
             if (currentUser) {
@@ -81,10 +127,20 @@
             }
             else {
                 console.log("no user is currently logged in");
-                return null;
             }
         }
 
+        /**
+         * @ngdoc method
+         * @name loginService#logOut
+         * @methodOf loginService
+         * @description
+         *
+         * Logs out current user.
+         *
+         * @returns {void} void.
+         *
+         */
         function logOut(){
             Parse.User.logOut();
         }
