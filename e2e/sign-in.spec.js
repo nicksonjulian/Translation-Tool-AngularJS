@@ -17,16 +17,27 @@ describe('Sign In view', function() {
 
 	it('login should be successful', function() {
 		page.signIn('jigong123', 'jigong123');
-		expect(page.failMessage).toEqual("");
+		page.signInButton.click();
+		browser.sleep(3000);
+		//expect(page.failLogin.isDisplayed()).toBeFalsy();
+		//expect(page.failMessage.getText()).toEqual("");
+		expect(browser.getCurrentUrl()).toEqual('http://localhost:3000/#/landing/jigong123');
 	});
 
 	it('login should fail', function() {
 		page.signIn('notexist', 'notexist');
-		expect(page.failMessage).toEqual("invalid login parameters");
+		page.signInButton.click();
+		browser.sleep(1000);
+		page.signInButton.click();
+		browser.sleep(5000);
+		//expect(page.failLogin.isDisplayed()).toBeTruthy();
+		expect(page.failMessage.getText()).toEqual("invalid login parameters");
 	});
 
 	it('login should fail with no username and email provided', function() {
-		page.signIn(null, null);
-		expect(page.failMessage).toEqual("no email && password provided!");
+		page.signInButton.click();
+		browser.sleep(1000);
+		//expect(page.failLogin.isDisplayed()).toBeTruthy();
+		expect(page.failMessage.getText()).toEqual("no email && password provided");
 	});
 });

@@ -8,7 +8,6 @@
 
 var gulp = require('gulp');
 var wrench = require('wrench');
-var Dgeni = require('dgeni');
 
 /**
  *  This will load all js or coffee files in the gulp directory
@@ -26,17 +25,4 @@ wrench.readdirSyncRecursive('./gulp').filter(function(file) {
  */
 gulp.task('default', ['clean'], function () {
   gulp.start('build');
-});
-
-/**
- *  Create documentation
- */
-gulp.task('dgeni', function(done) {
-  try {
-    var dgeni = new Dgeni([require('./docs/dgeni-conf.js')]);
-    return dgeni.generate();
-  } catch(x) {
-    console.log(x.stack);
-    throw x;
-  }
 });
