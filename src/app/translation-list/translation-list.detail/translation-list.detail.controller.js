@@ -7,7 +7,7 @@
 
 
     /** @ngInject */
-    function TranslationListDetailController(parseUserService, loginService, $state) {
+    function TranslationListDetailController(parseUserService, loginService, $scope) {
     	var vm = this;
         var displaydata = 5;
     	vm.alldatas = parseUserService.getAllData(loginService.getCurrentUser());
@@ -35,6 +35,7 @@
                     vm.translations[i].editorEnabled = false;
                 }
                 vm.displayeddata = vm.translations.slice(vm.currenttransnav * displaydata, vm.currenttransnav * displaydata + 5);
+                $scope.$applyAsync();
             },
             error: function(error) {
                 alert("Error: " + error.code + " " + error.message);
@@ -53,7 +54,7 @@
         }
 
         function saveTrans(index) {
-            parseUserService.setData(vm.translations[index].id, vm.translations[index]._serverData.v1, vm.translations[index]._serverData.v2);
+            parseUserService.setData(vm.translations[index].id, vm.translations[index]._serverData.v1, vm.translations[index]._serverData.v2).then($scope.$applyAsync);
             vm.translations[index].editorEnabled = false;
         }
 
@@ -62,15 +63,23 @@
         }
 
         function addTrans() {
-            parseUserService.createData(vm.capitalize(vm.newWord1), vm.capitalize(vm.newWord2), loginService.currentUsername);
-            vm.newWord1 = "";
-            vm.newWord2 = "";
-            $state.go("translationList.detail", {}, {reload: true});
+            parseUserService.createData(
+                vm.capitalize(vm.newWord1),
+                vm.capitalize(vm.newWord2),
+                loginService.currentUsername,
+                function(data) {
+                    vm.translations.push(data);
+                    vm.displayeddata.push(data);
+                    vm.newWord1 = '';
+                    vm.newWord2 = '';
+                    $scope.$applyAsync();
+                }
+            );
         }
 
         function delTrans(index) {
             if (confirm("Do you really want to delete this translation?") == true) {
-                parseUserService.deleteData(vm.translations[index].id);
+                parseUserService.deleteData(vm.translations[index].id).then($scope.$applyAsync);
             }
         }
 
