@@ -78,7 +78,8 @@
         }
 
         function delTrans(index) {
-            if (confirm("Do you really want to delete this translation?") == true) {
+            if (confirm("Do you really want to delete " +  vm.translations[index]._serverData.v1 + " -> " + vm.translations[index]._serverData.v2 + "?") == true) {
+                console.log(vm.translations[index].id);
                 parseUserService.deleteData(vm.translations[index].id).then($scope.$applyAsync);
             }
         }

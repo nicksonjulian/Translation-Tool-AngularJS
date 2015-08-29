@@ -31,14 +31,16 @@
       <div class="paragraph">
         <h2> translate translate translate translate translate translate translate translate translate translate translate translate translate translate translate translate translate translate translate translate</h2>
       </div>
-      <input type="text" ng-model="vm.wordinput" placeholder="enter">
-      <div layout="row" layout-align="center center">
-        <span class="md-button md-raised md-cornered">Create a new translation</span>
-        <span class="md-button md-raised md-cornered" ng-click="vm.displayMeaning()">Find meaning</span>
-        <span class="md-button md-raised md-cornered">Delete a translation</span>
-        <span class="md-button md-raised md-cornered">Set new meaning</span>
+      <div class="quicksearch" layout="column" layout-align="center center">
+        <input type="text" ng-model="vm.wordinput" placeholder="enter">
+        <div layout="row" layout-align="center center">
+          <span class="md-button md-raised md-cornered">Create a new translation</span>
+          <span class="md-button md-raised md-cornered" ng-click="vm.displayMeaning()">Find meaning</span>
+          <span class="md-button md-raised md-cornered">Delete a translation</span>
+          <span class="md-button md-raised md-cornered">Set new meaning</span>
+        </div>
+        {{vm.theword}} {{vm.meaning}}
       </div>
-      {{vm.theword}} {{vm.meaning}}
 
     
     </div>

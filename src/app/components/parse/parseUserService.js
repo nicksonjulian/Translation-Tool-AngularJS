@@ -76,6 +76,16 @@
             return defer.promise;
         }
 
+        function setData2(id, v1, v2) {
+            var query = new Parse.Query(Data);
+            query.get(
+                id, {
+                    success: callback,
+                    error: callback
+                }
+            );
+        }
+
         function deleteData(id) {
             var query = new Parse.Query(Data);
             var defer = $q.defer();

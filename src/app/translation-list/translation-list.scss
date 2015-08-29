@@ -2,14 +2,23 @@ $primary-color: #71C6FF;
 
 @import url(http://fonts.googleapis.com/css?family=Arvo);
 
+@mixin maxsize {
+  height: 100%;
+  width: 100%;
+}
+
+@mixin icon-size {
+  height: 20px;
+  width: 20px;
+}
+
 body {
   font-family: 'Arvo', serif;
 }
 
 .blue-background2 {
   background-color: $primary-color;
-  height:100%;
-  width: 100%;
+  @include maxsize;
   min-height: 700px;
   
 }
@@ -23,15 +32,16 @@ body {
   background-color: white;
 
   .tableregion2 {
-  	width:100%;
-  	height:100%;
+  	@include maxsize;
+
 
   	.tableregion3 {
   		height:100%;
 
   		.translationTable {
-  			height:100%;
-  			width: 100%;
+        @include maxsize;
+
+  	
   			border-collapse: collapse;
 
         .tableheader {
@@ -50,12 +60,10 @@ body {
 
 .transnavbar {
   padding-left: 80%; 
-  align: right;
 }
 
 .transnav {
   color: red;
-  align: right;
 }
 
 .addnew-row {
@@ -63,22 +71,16 @@ body {
     input {
       width: 80%;
     }
-
   }
-  
 }
 
-
-
 .icon {
-  width: 20px;
-  height: 20px;
+  @include icon-size;
   padding-left: 20%;
 }
 
 .add-icon {
-  width: 20px;
-  height: 20px;
+  @include icon-size;
   padding-left: 40%;
   
 }
@@ -94,9 +96,9 @@ body {
 }
 
 .searchregion{
-  margin-left: 50px;
+  margin-left: 25%;
 
   input[type=search] { 
-    width:70%;
+    width:80%;
   }
 }
